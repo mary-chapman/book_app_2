@@ -1,0 +1,60 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="container">
+
+            <h1>BOOK LIST</h1>
+            <div id="addForm">
+                    Title: <input placeholder="" id="addBookInput" />
+                    <button id="addBookBtn">ADD</button>
+                </div>
+
+            <div id="bookContainer"></div>
+
+        </div>
+
+        <script>
+            let books = [];
+            let userInput;
+            
+            document.getElementById("addBookBtn").onclick = function() {
+                userInput = document.getElementById("addBookInput").value;
+                editInput = document.getElementById("editedInput")
+                
+
+                books.push(userInput);
+                document.getElementById("bookContainer").innerHTML += 
+                
+                `<div id='viewBookItem'>
+                    <h2>${userInput}</h2>
+                    <button onclick="edit()">EDIT</button>
+                    <button>DEL</button>
+                </div>
+
+                <div id='editBookItem' style="display:none">
+                    <input id="editedInput" value=${userInput} />
+                    <button onclick="save(document.getElementById('editedInput').value)">SAVE</button>
+                    <button onclick="cancel()">CANCEL</button>
+                </div>`
+            }
+
+            //helper functions
+            function edit() {
+                document.getElementById("viewBookItem").style.display = "none";
+                document.getElementById("editBookItem").style.display = "inline"
+            }
+            function cancel() {
+                document.getElementById("viewBookItem").style.display = "inline";
+                document.getElementById("editBookItem").style.display = "none"
+            }
+            function save(userInput) {
+                console.log(userInput)
+                books
+            }
+
+
+        </script>
+    </body>
+</html>
